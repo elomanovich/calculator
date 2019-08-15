@@ -4,6 +4,8 @@
     <list default="true" id="007ad9ba-bc67-4c6d-9401-a0ba138727a4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AutoScalingText.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AutoScalingText.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CalculatorDisplay.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CalculatorDisplay.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +84,17 @@
       <updated>1565021554589</updated>
       <workItem from="1565021558319" duration="2228000" />
       <workItem from="1565870151968" duration="252000" />
+      <workItem from="1565871442474" duration="406000" />
+      <workItem from="1565874428926" duration="1286000" />
     </task>
+    <task id="LOCAL-00001" summary="add components">
+      <created>1565871670948</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1565871670948</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -93,11 +105,17 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add components" />
+    <option name="LAST_COMMIT_MESSAGE" value="add components" />
   </component>
   <component name="masterDetails">
     <states>

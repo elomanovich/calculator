@@ -12,14 +12,14 @@ export default class AutoScalingText extends React.Component {
 
 
     componentDidUpdate() {
-        const {scale} = this.state
+        const {scale} = this.state;
 
-        const node = this.node
-        const parentNode = node.parentNode
+        const node = this.node;
+        const parentNode = node.parentNode;
 
-        const availableWidth = parentNode.offsetWidth
-        const actualWidth = node.offsetWidth
-        const actualScale = availableWidth / actualWidth
+        const availableWidth = parentNode.offsetWidth;
+        const actualWidth = node.offsetWidth;
+        const actualScale = availableWidth / actualWidth;
 
         if (scale === actualScale)
             return;
@@ -32,7 +32,7 @@ export default class AutoScalingText extends React.Component {
     }
 
     render() {
-        const {scale} = this.state
+        const {scale} = this.state;
 
         return (
             <div

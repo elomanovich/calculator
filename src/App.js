@@ -2,14 +2,8 @@ import React from 'react';
 import './App.css';
 import CalculatorDisplay from "./components/CalculatorDisplay";
 import CalculatorKey from "./components/CalculatorKey";
+import calculatorOperations from "./helpers";
 
-const CalculatorOperations = {
-    '/': (prevValue, nextValue) => prevValue / nextValue,
-    '*': (prevValue, nextValue) => prevValue * nextValue,
-    '+': (prevValue, nextValue) => prevValue + nextValue,
-    '-': (prevValue, nextValue) => prevValue - nextValue,
-    '=': (prevValue, nextValue) => nextValue
-};
 
 class App extends React.Component {
     constructor(props) {
@@ -42,7 +36,7 @@ class App extends React.Component {
     }
 
     clearLastChar() {
-        const {displayValue} = this.state
+        const {displayValue} = this.state;
 
         this.setState({
             displayValue: displayValue.substring(0, displayValue.length - 1) || '0'
@@ -50,19 +44,19 @@ class App extends React.Component {
     }
 
     toggleSign() {
-        const {displayValue} = this.state
+        const {displayValue} = this.state;
 
         this.setState({
-            displayValue: displayValue.charAt(0) === '-' ? displayValue.substr(1) : '-' + displayValue
+            displayValue: displayValue.startsWith('-') ? displayValue.substr(1) : '-' + displayValue
         })
     }
 
     inputPercent() {
-        const {displayValue} = this.state
-        const value = parseFloat(displayValue)
+        const {displayValue} = this.state;
+        const value = parseFloat(displayValue);
 
         if (value === 0)
-            return
+            return;
 
         this.setState({
             displayValue: String(value / 100)
@@ -70,7 +64,7 @@ class App extends React.Component {
     }
 
     inputDot() {
-        const {displayValue} = this.state
+        const {displayValue} = this.state;
 
         if (!(/\./).test(displayValue)) {
             this.setState({
@@ -81,7 +75,7 @@ class App extends React.Component {
     }
 
     inputDigit(digit) {
-        const {displayValue, waitingForOperand} = this.state
+        const {displayValue, waitingForOperand} = this.state;
 
         if (waitingForOperand) {
             this.setState({
@@ -96,16 +90,16 @@ class App extends React.Component {
     }
 
     performOperation(nextOperator) {
-        const {value, displayValue, operator} = this.state
-        const inputValue = parseFloat(displayValue)
+        const {value, displayValue, operator} = this.state;
+        const inputValue = parseFloat(displayValue);
 
         if (value == null) {
             this.setState({
                 value: inputValue
             })
         } else if (operator) {
-            const currentValue = value || 0
-            const newValue = CalculatorOperations[operator](currentValue, inputValue)
+            const currentValue = value || 0;
+            const newValue = calculatorOperations[operator](currentValue, inputValue);
 
             this.setState({
                 value: newValue,
@@ -120,27 +114,27 @@ class App extends React.Component {
     }
 
     handleKeyDown(event) {
-        let {key} = event
+        let {key} = event;
 
         if (event.ctrlKey || event.metaKey)
-            return
+            return;
 
         if (key === 'Enter')
-            key = '='
+            key = '=';
 
         if ((/\d/).test(key)) {
             this.inputDigit(parseInt(key, 10))
-        } else if (key in CalculatorOperations) {
+        } else if (key in calculatorOperations) {
             this.performOperation(key)
         } else if (key === '.') {
             this.inputDot()
         } else if (key === '%') {
             this.inputPercent()
         } else if (key === 'Backspace') {
-            event.preventDefault()
+            event.preventDefault();
             this.clearLastChar()
         } else if (key === 'Clear') {
-            event.preventDefault()
+            event.preventDefault();
 
             if (this.state.displayValue !== '0') {
                 this.clearDisplay()
